@@ -44,7 +44,7 @@ class PropertyProfile(db.Model):
     property_price = db.Column(db.Integer)
     property_type = db.Column(db.String(80))
     property_location = db.Column(db.String(255))
-    property_photo = db.Column(db.LargeBinary) #To be completed
+    property_photo = db.Column(db.String(255)) #To be completed
 
     def __init__(self, property_title, property_description, number_room, number_bathroom, property_price, property_type, property_location, property_photo):
         self.property_title = property_title
