@@ -31,3 +31,41 @@ body {
     height: 100%;
     object-fit: cover;
 }
+
+.full_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 95vh;
+    background-color: rgb(225, 230, 235);
+}
+
+.full_description {
+    padding-left: 20px;
+}
+
+.to_colour {
+    justify-content: space-around;
+}
+
+.price {
+    background-color: blue;
+    border-radius: 25%;
+    color: white;
+}
+
+.type {
+    background-color: orange;
+    border-radius: 25%;
+    color: white;
+}
+
+.align {
+    display: inline;
+    justify-content: space-between;
+}
+
+.set img{
+    
+}

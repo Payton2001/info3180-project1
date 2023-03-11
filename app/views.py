@@ -31,23 +31,23 @@ def new_property():
     form = AddPropertyForm()
 
     if form.validate_on_submit() and request.method == 'POST':
-        property_title = form.title.data
-        property_description = form.description.data
-        number_rooms = form.num_rooms.data
-        number_bathrooms = form.num_bathrooms.data
-        property_price = form.price.data
-        property_type = form.property_type.data
-        property_location = form.location.data
-        property_photo = form.photo.data
+        title = form.title.data
+        description = form.description.data
+        num_rooms = form.num_rooms.data
+        num_bathrooms = form.num_bathrooms.data
+        price = form.price.data
+        p_type = form.p_type.data
+        location = form.location.data
+        photo = form.photo.data
         
         #for photo
-        filename = secure_filename(property_photo.filename)
-        property_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
         #add to database
-        add_property = PropertyProfile(request.form['property_title'], request.form['property_description'], request.form['number_rooms'], 
-                                       request.form['number_bathrooms'], request.form['property_price'], request.form['property_type'], 
-                                       request.form['property_location'], filename)
+        add_property = PropertyProfile(request.form['title'], request.form['description'], request.form['num_rooms'], 
+                                       request.form['num_bathrooms'], request.form['price'], request.form['p_type'], 
+                                       request.form['location'], filename)
         db.session.add(add_property)
         db.session.commit()
 
@@ -69,10 +69,10 @@ def properties():
 #@login_required
 def get_property(propertyid):
     current_property = db.session.execute(db.select(PropertyProfile).filter_by(property_id=propertyid)).scalar_one()
-    if current_property is not None:
-        return render_template('full_property.html', current_property=current_property)
-    flash('This property seems to be missing', 'error')
-    return redirect(url_for('properties'))
+    #if current_property is not None:
+    return render_template('full_property.html', current_property=current_property)
+    #flash('This property seems to be missing', 'error')
+    #return redirect(url_for('properties'))
 
 @app.route('/uploads/<filename>')
 def get_image(filename):

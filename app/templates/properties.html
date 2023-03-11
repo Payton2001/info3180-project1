@@ -6,12 +6,14 @@
 {% include 'flash_messages.html' %}
 
 {% for property in all_properties %}
-    <div class="view">
-        <img src="{{ url_for('get_image', filename=property.property_photo) }}" alt="Photo of rental" class="photo">
-        <h2 class="title"> {{ property.property_title }}</h2>
-        <p class="location"> {{ property.property_location }}</p>
-        <p class="price"> ${{ property.property_price }}</p>
+    <div class="card" style="width: 18rem;">
+        <img src="{{ url_for('get_image', filename=property.property_photo) }}" alt="Photo of rental" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title"> {{ property.property_title }}</h5>
+            <p class="card-text"> {{ property.property_location }}</p>
+            <p class="card-text"> ${{ property.property_price }}</p>
+        </div>
+        <a href="{{ url_for('get_property', propertyid=property.property_id) }}" class="btn btn-primary">View property</a>
     </div>
-    <a href="{{url_for('get_property', propertyid=property_id)}}" class="btn btn-primary">View property</a>
 {% endfor %}
 {% endblock %}
