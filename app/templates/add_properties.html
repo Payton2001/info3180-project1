@@ -1,54 +1,81 @@
 {% extends 'base.html' %}
 
+{% block css%}
+<style>
+    .no-room, .pri-ty{
+        display: flex;
+        gap: 50px;
+    }
+
+    body {
+        background-color: rgb(247, 248, 248);
+    }
+
+    .form-div{
+        align-content: center;
+        background-color: white;
+        border: 2px solid rgba(221, 215, 215, 0.233);
+        box-shadow: 2px;
+    }
+</style>
+{% endblock%}
+
 {% block main %}
 <h1 class="page-header">Add New Property</h1>
 
 {% include 'flash_messages.html' %}
 
 {# Add the appropriate method and enctype attributes to the form tag to allow for file uploads #}
-<form action="{{ url_for('new_property') }}" method="post" enctype="multipart/form-data">
-    {{ form.csrf_token }}
+<div class="form-div">
+    <form action="{{ url_for('new_property') }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+    
+        <div class="form-group mb-3">
+            {{ form.title.label(class="form-label") }}
+            {{ form.title(class="form-control") }}
+        </div>
+    
+        <div class="form-group mb-3">
+            {{ form.description.label(class="form-label") }}
+            {{ form.description(class="form-control") }}
+        </div>
+    
+        <div class="no-room">
+            <div class="form-group mb-3">
+                {{ form.num_rooms.label(class="form-label") }}
+                {{ form.num_rooms(class="form-control") }}
+            </div>
+    
+            <div class="form-group mb-3">
+                {{ form.num_bathrooms.label(class="form-label") }}
+                {{ form.num_bathrooms(class="form-control") }}
+            </div>
+        </div>
+    
+        <div class="pri-ty">
+            <div class="form-group mb-3">
+                {{ form.price.label(class="form-label") }}
+                {{ form.price(class="form-control") }}
+            </div>
+    
+            <div class="form-group mb-3">
+                {{ form.p_type.label(class="form-label") }}
+                {{ form.p_type(class="form-control") }}
+            </div>
+        </div>
+    
+        <div class="form-group mb-3">
+            {{ form.location.label(class="form-label") }}
+            {{ form.location(class="form-control") }}
+        </div>
+    
+        <div class="form-group mb-3">
+            {{ form.photo.label(class="form-label") }}
+            {{ form.photo(class="form-control") }}
+        </div>
+    
+        <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+    </form>
+</div>
 
-    <div class="form-group mb-3">
-        {{ form.title.label(class="form-label") }}
-        {{ form.title(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.description.label(class="form-label") }}
-        {{ form.description(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.num_rooms.label(class="form-label") }}
-        {{ form.num_rooms(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.num_bathrooms.label(class="form-label") }}
-        {{ form.num_bathrooms(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.price.label(class="form-label") }}
-        {{ form.price(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.p_type.label(class="form-label") }}
-        {{ form.p_type(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.location.label(class="form-label") }}
-        {{ form.location(class="form-control") }}
-    </div>
-
-    <div class="form-group mb-3">
-        {{ form.photo.label(class="form-label") }}
-        {{ form.photo(class="form-control") }}
-    </div>
-
-    <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
-</form>
 {% endblock %}

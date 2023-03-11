@@ -13,7 +13,7 @@
             <h2>{{ current_property.property_title}}</h2>
         </div>
         <div class="to_colour">
-            <h5 class="price">{{ current_property.property_price}}</h5>
+            <h5 class="price">${{ current_property.property_price}}</h5>
             <h5 class="type">{{ current_property.property_type}}</h5>
         </div>
         <div class="description">
@@ -21,20 +21,21 @@
         </div>
         <div class="align">
             <div class="set">
-                <img src="{{ url_for('static', filename=/bedroom.jpg)}}" alt="Photo of bed icon">
+                <img src="{{ url_for('static', filename='/bedroom.jpg')}}" alt="Photo of bed icon">
                 <span>{{ current_property.number_room }} Bedroom</span>
             </div>
             <div class="set">
-                <img src="{{url_for('static', filename=/shower.jpg)}}" alt="Shower Icon">
+                <img src="{{url_for('static', filename='/shower.jpg')}}" alt="Shower Icon">
                 <span>{{ current_property.number_bathroom}} Bathroom</span>
             </div>
         </div>
-        <div class="set">
-            <img src="{{ url_for('static', filename=/location.png)}}" alt="">
+        <div class="set" id="location">
+            <img src="{{ url_for('static', filename='/location.png')}}" alt="">
             <span>{{ current_property.property_location}}</span>
         </div>
+        <button type="submit" name="submit" class="btn btn-primary">Email Realtor</button>
+
     </div>
-    <button type="submit" name="submit" class="btn btn-primary">Email Realtor</button>
 </div>
 
 {% endblock %}

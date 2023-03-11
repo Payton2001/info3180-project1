@@ -2,6 +2,10 @@ body {
     padding-top: 5rem;
 }
 
+.navbar {
+    background-color: aqua;
+}
+
 .form-login {
     max-width: 330px;
     padding: 15px;
@@ -34,38 +38,57 @@ body {
 
 .full_container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 95vh;
-    background-color: rgb(225, 230, 235);
+    background-color: rgb(244, 246, 248);
 }
 
-.full_description {
-    padding-left: 20px;
+.full_container img {
+    width: auto;
+    height: auto;
 }
 
 .to_colour {
-    justify-content: space-around;
+    display: flex;
+    gap: 100px;
 }
 
 .price {
     background-color: blue;
-    border-radius: 25%;
     color: white;
+    vertical-align: middle;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px / 25px;
+
 }
 
 .type {
     background-color: orange;
-    border-radius: 25%;
     color: white;
+    vertical-align: middle;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px / 25px;
 }
 
 .align {
-    display: inline;
-    justify-content: space-between;
+    display: flex;
+    /*justify-content: space-between;*/
+    gap: 30px;
 }
 
-.set img{
-    
+.align .set {
+    display: inline;
 }
+
+.set img {
+    height: 20px;
+    width: auto;
+}
+
+/*h5 {
+    width: 100px;
+    height: 50px;
+    border-radius: 50px / 25px;
+    font-size: 14px;
+    vertical-align: middle;
+}*/
